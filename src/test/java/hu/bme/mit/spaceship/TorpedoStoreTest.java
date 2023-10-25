@@ -17,4 +17,45 @@ class TorpedoStoreTest {
     // Assert
     assertEquals(true, result);
   }
+
+  @Test
+  void fire_Invalid(){
+    // Arrange
+    TorpedoStore store = new TorpedoStore(0);
+    boolean catched = false;
+    // Act
+    try{
+      boolean result = store.fire(1);
+    }
+    catch(IllegalArgumentException ex){
+      catched = true;
+    }
+    
+    // Assert
+    assertEquals(true, catched);
+  }
+
+  @Test
+  void store_empty(){
+    //Arrange
+    TorpedoStore store = new TorpedoStore(0);
+
+    //Act
+    boolean result = store.isEmpty();
+
+    //Assert
+    assertEquals(true, result);
+  }
+
+  @Test
+  void store_TorpedoCount(){
+        //Arrange
+        TorpedoStore store = new TorpedoStore(7);
+
+        //Act
+        int result = store.getTorpedoCount();
+    
+        //Assert
+        assertEquals(7, result);
+  }
 }
